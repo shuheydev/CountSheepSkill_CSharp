@@ -14,7 +14,7 @@ namespace CountSheepSkill_CSharp
 {
     public class Function
     {
-        private readonly string skillName = "";
+        private readonly string skillName = "羊カウント";
 
 
         /// <summary>
@@ -39,6 +39,9 @@ namespace CountSheepSkill_CSharp
                         {
                             case "StartCountSheepIntent":
                                 skillResponse =StartCountSheepIntentHandler(skillRequest);
+                                break;
+                            case "StopCountSheepIntent":
+                                skillResponse = StopCountSheepIntentHandler(skillRequest);
                                 break;
                             case "AMAZON.HelpIntent":
                                 skillResponse = HelpIntentHandler(skillRequest);
@@ -121,6 +124,43 @@ namespace CountSheepSkill_CSharp
                 Version = "1.0",
                 Response = new ResponseBody()
             };
+
+            var breakTime =1.0;
+
+            var countContents = ComposeMessage.ComposeCountContents(breakTime);
+
+            //SSMLを利用する。
+            //読み上げの間を調整するため
+            skillResponse.Response.OutputSpeech = new SsmlOutputSpeech
+            {
+                Ssml =$"<speak>{speechText+countContents}。カウントを終わります。</speak>"
+            };
+            skillResponse.Response.Card = new SimpleCard
+            {
+                Title = skillName,
+                Content = speechText
+            };
+            skillResponse.Response.ShouldEndSession = true;
+
+            return skillResponse;
+        }
+
+        private SkillResponse StopCountSheepIntentHandler(SkillRequest skillRequest)
+        {
+            var intentRequest = skillRequest.Request as IntentRequest;
+
+            var speechText = "カウントを終わります。";
+
+            var skillResponse = new SkillResponse
+            {
+                Version = "1.0",
+                Response = new ResponseBody()
+            };
+
+            var breakTime = 1.0;
+
+            var countContents = ComposeMessage.ComposeCountContents(breakTime);
+
 
             skillResponse.Response.OutputSpeech = new PlainTextOutputSpeech
             {
@@ -214,15 +254,16 @@ namespace CountSheepSkill_CSharp
         /// <returns></returns>
         private SkillResponse SessionEndedRequestHandler(SkillRequest skillRequest)
         {
-            var sesstionEndedRequest = skillRequest.Request as SessionEndedRequest;
-
             var skillResponse = new SkillResponse
             {
                 Version = "1.0",
                 Response = new ResponseBody()
             };
 
-            skillResponse.Response.ShouldEndSession = true;
+            skillResponse.Response.OutputSpeech = new PlainTextOutputSpeech
+            {
+                Text = "カウントを終わります。"
+            };
 
             return skillResponse;
         }
