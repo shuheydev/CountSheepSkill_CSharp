@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountSheepSkill_CSharp", "CountSheepSkill_CSharp\CountSheepSkill_CSharp.csproj", "{1F66CD73-90B3-402B-AD75-CB434688A04E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountSheepSkill_CSharp.Tests", "CountSheepSkill_CSharp.Tests\CountSheepSkill_CSharp.Tests.csproj", "{1B983B93-2A2E-430A-B460-62F714073E3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F66CD73-90B3-402B-AD75-CB434688A04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F66CD73-90B3-402B-AD75-CB434688A04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F66CD73-90B3-402B-AD75-CB434688A04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F66CD73-90B3-402B-AD75-CB434688A04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B983B93-2A2E-430A-B460-62F714073E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B983B93-2A2E-430A-B460-62F714073E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B983B93-2A2E-430A-B460-62F714073E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B983B93-2A2E-430A-B460-62F714073E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE0C2CAC-CD6F-4DC6-A174-E4F82F1DE93F}
+	EndGlobalSection
+EndGlobal
