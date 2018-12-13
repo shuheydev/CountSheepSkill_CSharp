@@ -14,7 +14,9 @@ namespace CountSheepSkill_CSharp
 {
     public class Function
     {
-        //hello
+        private readonly string skillName = "";
+
+
         /// <summary>
         /// A simple function that takes a string and does a ToUpper
         /// </summary>
@@ -78,7 +80,8 @@ namespace CountSheepSkill_CSharp
         {
             var launchRequest = skillRequest.Request as LaunchRequest;
 
-            var speechText = "Welcom to the Alexa Skills Kit, you can say hello!";
+            var speechText = "羊を1から100までカウントします。"+
+                "カウントを開始しますか？";
 
             var skillResponse = new SkillResponse
             {
@@ -99,7 +102,7 @@ namespace CountSheepSkill_CSharp
             };
             skillResponse.Response.Card = new SimpleCard
             {
-                Title = "Hello World",
+                Title =skillName,
                 Content = speechText
             };
 
@@ -111,7 +114,7 @@ namespace CountSheepSkill_CSharp
         {
             var intentRequest = skillRequest.Request as IntentRequest;
 
-            var speechText = "Hello World!";
+            var speechText = "羊を100までカウントします。";
 
             var skillResponse = new SkillResponse
             {
@@ -125,7 +128,7 @@ namespace CountSheepSkill_CSharp
             };
             skillResponse.Response.Card = new SimpleCard
             {
-                Title = "Hello World",
+                Title = skillName,
                 Content = speechText
             };
             skillResponse.Response.ShouldEndSession = true;
@@ -142,7 +145,9 @@ namespace CountSheepSkill_CSharp
         {
             var intentRequest = skillRequest.Request as IntentRequest;
 
-            var speechText = "You can say hello to me!";
+            var speechText = "羊を100までカウントします。"+
+                "例えば、スキルを起動したら、カウントを開始する場合は、はい、を。" +
+                "カウントを開始しない場合は、いいえ、と言ってください。"; 
 
             var skillResponse = new SkillResponse
             {
@@ -163,7 +168,7 @@ namespace CountSheepSkill_CSharp
             };
             skillResponse.Response.Card = new SimpleCard
             {
-                Title = "Hello World",
+                Title = skillName,
                 Content = speechText
             };
 
@@ -180,7 +185,7 @@ namespace CountSheepSkill_CSharp
         {
             var intentRequest = skillRequest.Request as IntentRequest;
 
-            var speechText = "Goodbye!";
+            var speechText = "カウントを終わります。";
 
             var skillResponse = new SkillResponse
             {
@@ -194,7 +199,7 @@ namespace CountSheepSkill_CSharp
             };
             skillResponse.Response.Card = new SimpleCard
             {
-                Title = "Hello World",
+                Title = skillName,
                 Content = speechText
             };
             skillResponse.Response.ShouldEndSession = true;
@@ -229,7 +234,7 @@ namespace CountSheepSkill_CSharp
         /// <returns></returns>
         private SkillResponse ErrorHandler(SkillRequest skillRequest)
         {
-            var speechText = "Sorry, I can't understand the command. Please say again.";
+            var speechText = "すみません、よく聞こえませんでした。";
 
             var skillResponse = new SkillResponse
             {
