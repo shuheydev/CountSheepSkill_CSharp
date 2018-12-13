@@ -27,7 +27,6 @@ namespace CountSheepSkill_CSharp
 
             try
             {
-                //型スイッチの利用
                 switch (skillRequest.Request)
                 {
                     case LaunchRequest launchRequest:
@@ -36,8 +35,8 @@ namespace CountSheepSkill_CSharp
                     case IntentRequest intentRequest:
                         switch (intentRequest.Intent.Name)
                         {
-                            case "HelloWorldIntent":
-                                skillResponse = HelloWorldIntentHandler(skillRequest);
+                            case "StartCountSheepIntent":
+                                skillResponse =StartCountSheepIntentHandler(skillRequest);
                                 break;
                             case "AMAZON.HelpIntent":
                                 skillResponse = HelpIntentHandler(skillRequest);
@@ -108,7 +107,7 @@ namespace CountSheepSkill_CSharp
         }
 
         //ご自分で追加したインテントに合わせて名前や処理を変更してください。
-        private SkillResponse HelloWorldIntentHandler(SkillRequest skillRequest)
+        private SkillResponse StartCountSheepIntentHandler(SkillRequest skillRequest)
         {
             var intentRequest = skillRequest.Request as IntentRequest;
 
